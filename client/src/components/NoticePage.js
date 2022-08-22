@@ -8,7 +8,7 @@ const NoticePage = () => {
   const url = "http://localhost:5000/api/get-notices";
 
   const setData = (todo) => {
-    setText([{tasks:todo}, ...text]);
+    setText([{notice:todo}, ...text]);
     
   };
 
@@ -34,9 +34,9 @@ const NoticePage = () => {
 
       {text.map((e) => (
         <div className="notice-container" key={e._id}>
-          <div className="notice-one">{e.tasks}</div>
+          <div className="notice-one">{e.notice}</div>
           <div className="notice-second">
-            <div className="username-task">username</div>
+            <div className="username-task">{e.user_Id}</div>
             <div className="date-task">{e.createdAt}</div>
           </div>
         </div>

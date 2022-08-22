@@ -15,12 +15,15 @@ const login = async (req, res)=>{
 };
 
 const noticeTasks = async (req, res)=>{
+    
     const newNotice = new Notice({
-        tasks: req.body.text,
+        notice: req.body.text,
+        user_Id: req.body.id
     });
     try {
         const savedNotice = await newNotice.save();
         return res.status(201).json(savedNotice);
+        console.log(savedNotice)
     } catch (error) {
         return res.status(500).json(error);
     }    

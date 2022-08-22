@@ -19,14 +19,16 @@ const LoginPage = () => {
         },
         body: JSON.stringify({
             name,
+
         }),
       });
 
       const data = await response.json()
-      console.log(data.username)
+      console.log(data.username, data._id)
       
       if(data.username) {
         localStorage.setItem('Name', data.username)
+        localStorage.setItem('id', data._id)
         alert("Login Successful!!")
         navigate("/noticepage")
       } 
