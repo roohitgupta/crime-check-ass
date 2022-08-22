@@ -8,7 +8,7 @@ const NoticePage = () => {
   const url = "http://localhost:5000/api/get-notices";
 
   const setData = (todo) => {
-    setText([...text, todo]);
+    setText([{tasks:todo}, ...text]);
     
   };
 
