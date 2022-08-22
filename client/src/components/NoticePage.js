@@ -3,59 +3,44 @@ import AddNotice from "./AddNotice";
 import "../App.css";
 
 const NoticePage = () => {
-  
-  const [todos, setTodos] = useState([]);
   const [text, setText] = useState([]);
 
-  
-  const url = "http://localhost:5000/api/get-notices"
-  
- const addTodo = (text)=> {
-    let id = 1;
-    if(todos.length > 0) id = todos[0].id + 1;
+  const url = "http://localhost:5000/api/get-notices";
+
+  const setData = (todo) => {
+    setText([...text, todo]);
     
-    const newTodo = {
-        text: text,
-        id: id,
-        key: id,
-        
-    }
-    setTodos(()=>[newTodo, ...todos])
-}
+  };
 
   const fetchTasks = async () => {
     try {
-      const response = await fetch(url)
-      const data = await response.json()
-      setText(data)
-      console.log(data)
+      const response = await fetch(url);
+      const data = await response.json();
+      setText(data);
+      console.log(data);
     } catch (error) {
-      console.log("error:", error)
+      console.log("error:", error);
     }
-  }
+  };
 
-  useEffect(()=>{
-    fetchTasks()
-  },[])
-
+  useEffect(() => {
+    fetchTasks();
+  }, []);
 
   return (
     <div>
-      
       <h1>Notice Board</h1>
-      <AddNotice addTodo={addTodo} />
+      <AddNotice setDataProps={setData} />
 
-      {
-        text.map((e)=>(
-          
-           <div className="notice-container" key={e.id}>
-            <div>{e.tasks}</div>
-           </div>
-         
-           
-        ))
-      }
-      
+      {text.map((e) => (
+        <div className="notice-container" key={e._id}>
+          <div className="notice-one">{e.tasks}</div>
+          <div className="notice-second">
+            <div className="username-task">username</div>
+            <div className="date-task">{e.createdAt}</div>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };

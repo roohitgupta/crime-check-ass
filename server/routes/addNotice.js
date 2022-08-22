@@ -27,7 +27,7 @@ const noticeTasks = async (req, res)=>{
 };
 
 const getAllTasks = async (req, res)=>{
-    const getTasks = await AllTask.find();
+    const getTasks = await AllTask.find().sort( { createdAt: -1 });
 
     return res.json(getTasks);
 

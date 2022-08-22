@@ -27,9 +27,9 @@
 import React, { useState } from "react";
 import "../App.css"
 
-const AddNotice = () => {
+const AddNotice = (props) => {
 
-  const [text, setText] = useState([]);
+  const [text, setText] = useState("");
 
   const AddNoticeInList = async (event)=> {
     event.preventDefault();
@@ -44,8 +44,7 @@ const AddNotice = () => {
     });
 
     const textData = await response.json()
-    console.log(textData);
-
+    if(textData) props.setDataProps(text);
   }
 
   return (

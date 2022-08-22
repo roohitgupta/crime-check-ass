@@ -2,7 +2,7 @@
 .App {
   text-align: center;
   background-color: lightpink;
-  height: 500px;
+  height: 700px;
   
 }
 
@@ -36,7 +36,24 @@
   font-size: 18px;
   font-family: sans-serif;
   padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
+
+.notice-second {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.username-task{
+  font-size: smaller;
+}
+.date-task{
+  font-size: smaller;
+}
+
 
 .login-container {
   border: 2px solid black;
