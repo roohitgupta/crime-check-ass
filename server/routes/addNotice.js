@@ -16,7 +16,7 @@ const login = async (req, res)=>{
 
 const noticeTasks = async (req, res)=>{
     const newTasks = new AllTask({
-        tasks: req.body.tasks,
+        tasks: req.body.text,
     });
     try {
         const savedTasks = await newTasks.save();
