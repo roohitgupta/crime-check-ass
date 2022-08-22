@@ -9,8 +9,8 @@ const App = () => {
   return (
     <div className='App'>
       <h1>Public Notice Board!!</h1>
-      {/* <LoginPage /> */}
-      <NoticePage />
+      <LoginPage />
+      {/* <NoticePage /> */}
     </div>
   )
 }

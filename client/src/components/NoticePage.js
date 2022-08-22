@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import AddNotice from "./AddNotice";
+import "../App.css";
 
 const NoticePage = () => {
     
@@ -19,12 +19,7 @@ const NoticePage = () => {
     setTodos(()=>[newTodo, ...todos])
 }
 
-//   const Input = styled.input`
-//     margin-bottom: 15px;
-//     font-size: 20px;
-//     font-weight: 600;
-//     border: 2px solid black;
-//   `;
+
 
   return (
     <div>
@@ -34,8 +29,9 @@ const NoticePage = () => {
 
       {
         todos.map((e)=>(
-           <div key={e.id}>
+           <div className="notice-container" key={e.id}>
             <div>{e.text}</div>
+           
            </div>
            
         ))
