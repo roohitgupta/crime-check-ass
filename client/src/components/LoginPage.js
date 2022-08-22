@@ -21,14 +21,23 @@ const LoginPage = () => {
         flex-direction: column;
         margin-top: 45px;
     `
+    const Input = styled.input`
+        margin-bottom: 15px;
+        font-size: 20px;
+        font-weight: 600;
+        border: 2px solid black;
+    `
 
   return (
     <div>
       <Container>
        <h2 style={{textDecoration:"underline"}}>Login Page</h2>
        <Form action="">
-            <input style={{ marginBottom:"15px", fontSize:"20px", fontBold:"600", border:"2px solid black" }} type="text" placeholder='Enter Username' />
-            <input style={{ backgroundColor:"orange", fontSize:"17px", borderRadius:"9px" }} type="submit" />
+            <Input type="text" placeholder='Enter Username' />
+            <input 
+                type="submit" 
+                style={{ backgroundColor:"orange", fontSize:"17px", borderRadius:"9px" }} 
+            />
        </Form>
        
       </Container>
