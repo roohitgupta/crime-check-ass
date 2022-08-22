@@ -1,11 +1,14 @@
-import './App.css';
-
 import React from 'react'
+import './App.css';
+import LoginPage from './components/LoginPage';
+
+
 
 const App = () => {
   return (
-    <div>
+    <div className='App'>
       <h1>Public Notice Board!!</h1>
+      <LoginPage />
     </div>
   )
 }
