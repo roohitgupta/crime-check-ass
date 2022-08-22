@@ -8,8 +8,7 @@ const NoticePage = () => {
   const url = "http://localhost:5000/api/get-notices";
 
   const setData = (todo) => {
-    setText([{notice:todo}, ...text]);
-    
+    setText([{ notice: todo, createdAt: new Date() }, ...text]);
   };
 
   const fetchTasks = async () => {
@@ -33,12 +32,12 @@ const NoticePage = () => {
       <AddNotice setDataProps={setData} />
 
       {text.map((e) => (
-        <div className="notice-container" key={e._id}>
-          <div className="notice-one">{e.notice}</div>
-          <div className="notice-second">
-            <div className="username-task">{e.user_Id}</div>
-            <div className="date-task">{e.createdAt}</div>
-          </div>
+        <div key={e._id} className="notice-container">
+            <div className="notice-one">{e.notice}</div>
+            <div className="notice-second">
+              <div className="username-task">{e.user_Id}</div>
+              <div className="date-task">{new Date(e.createdAt).toLocaleDateString()} {new Date(e.createdAt).toLocaleTimeString()}</div>
+            </div> 
         </div>
       ))}
     </div>

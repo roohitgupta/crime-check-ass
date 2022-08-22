@@ -19,7 +19,6 @@ const LoginPage = () => {
         },
         body: JSON.stringify({
             name,
-
         }),
       });
 

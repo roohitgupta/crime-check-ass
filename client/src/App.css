@@ -48,10 +48,12 @@
 }
 
 .username-task{
-  font-size: smaller;
+  font-size: 12px;
+  
 }
 .date-task{
-  font-size: smaller;
+  font-size: 13px;
+  
 }
 
 
