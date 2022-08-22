@@ -1,24 +1,26 @@
 const express = require('express');
-const mongoose = require('mongoose');
-const { login, noticeTasks, getAllTasks } = require('./routes/addNotice');
+const connect = require('./db');
+const cors = require('cors');
+const router = express.Router();
+const { login, noticeTasks, getAllNotice } = require('./routes/addNotice');
+
 
 const app = express();
-const router = express.Router();
 app.use(express.json());
+app.use(cors());
 
 
 app.use('/api', router);
 router.post('/login', login);
 router.post('/notices', noticeTasks);
-router.get('/get-notices', getAllTasks);
+router.get('/get-notices', getAllNotice);
 
 
-
-mongoose
-.connect("mongodb://localhost:27017/NoticeBoard")
-.then(()=>console.log("MongoDb Connected!!"))
-.catch((error)=>console.log(error))
-
-app.listen(process.env.PORT || 5000, ()=>{
-    console.log("Server is running on port 5000")
-})
+app.listen(process.env.PORT || 5000, async ()=>{
+    try {
+        await connect();
+        console.log("Server is running on port 5000");
+    } catch (error) {
+        console.log(error);
+    }
+});

@@ -1,5 +1,5 @@
-const User = require("../models/User");
-const AllTask = require("../models/Tasks");
+const User = require("../models/User.Model");
+const Notice = require("../models/Notice.Model");
 
 
 const login = async (req, res)=>{
@@ -15,24 +15,24 @@ const login = async (req, res)=>{
 };
 
 const noticeTasks = async (req, res)=>{
-    const newTasks = new AllTask({
+    const newNotice = new Notice({
         tasks: req.body.text,
     });
     try {
-        const savedTasks = await newTasks.save();
-        return res.status(201).json(savedTasks);
+        const savedNotice = await newNotice.save();
+        return res.status(201).json(savedNotice);
     } catch (error) {
         return res.status(500).json(error);
     }    
 };
 
-const getAllTasks = async (req, res)=>{
-    const getTasks = await AllTask.find().sort( { createdAt: -1 });
+const getAllNotice = async (req, res)=>{
+    const getNotice = await Notice.find().sort( { createdAt: -1 });
 
-    return res.json(getTasks);
+    return res.json(getNotice);
 
 }
 
 module.exports = {
-    login, noticeTasks, getAllTasks
+    login, noticeTasks, getAllNotice
 };
