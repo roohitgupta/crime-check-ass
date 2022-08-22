@@ -31,7 +31,7 @@ const AddNotice = () => {
 
   const [text, setText] = useState([]);
 
-  const AddNotice = async (event)=> {
+  const AddNoticeInList = async (event)=> {
     event.preventDefault();
     const response = await fetch("http://localhost:5000/api/notices", {
       method: "POST",
@@ -44,16 +44,13 @@ const AddNotice = () => {
     });
 
     const textData = await response.json()
-    console.log(textData.tasks);
-
-    
-
+    console.log(textData);
 
   }
 
   return (
     <div>
-      <form onSubmit={AddNotice}>
+      <form onSubmit={AddNoticeInList}>
         <input
           type="text"
           placeholder="Enter Notices" 
@@ -67,4 +64,4 @@ const AddNotice = () => {
   )
 }
 
-export default AddNotice
+export default AddNotice;

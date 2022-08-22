@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const { login, noticeTasks } = require('./routes/addNotice');
+const { login, noticeTasks, getAllTasks } = require('./routes/addNotice');
 
 const app = express();
 const router = express.Router();
@@ -10,6 +10,7 @@ app.use(express.json());
 app.use('/api', router);
 router.post('/login', login);
 router.post('/notices', noticeTasks);
+router.get('/get-notices', getAllTasks);
 
 
 

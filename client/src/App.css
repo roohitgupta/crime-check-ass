@@ -22,10 +22,15 @@
 
 }
 
+.list-container{ 
+  border: 1px solid black;
+}
+
 .notice-container {
   border: 2px solid black;
   width: 50%;
   margin: auto;
+  margin-top: 10px;
   height: 60px;
   text-align: left;
   font-size: 18px;

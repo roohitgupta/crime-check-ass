@@ -26,6 +26,13 @@ const noticeTasks = async (req, res)=>{
     }    
 };
 
+const getAllTasks = async (req, res)=>{
+    const getTasks = await AllTask.find();
+
+    return res.json(getTasks);
+
+}
+
 module.exports = {
-    login, noticeTasks,
+    login, noticeTasks, getAllTasks
 };
