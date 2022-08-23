@@ -3,9 +3,9 @@
 Welcome To A Full Stack Notice Board App!
 
 <h1>For Run This App<h1/>
-<h3>you need to run 2 servers in your machine.
-One for FRONTEND ( Where you can run on default PORT Number which is 3000 ),
-Second for BACKEND ( Here you need to run you backend server on Port Number at 5000 ) <h3/>
+<h3>you need to run 2 servers in your machine. <br/>
+One for FRONTEND ( Where you can run on default PORT Number which is 3000 ) with the Command "npm start", <br/>
+Second for BACKEND ( Here you need to run you backend server on Port Number at 5000 ) with the Command "npm start" <h3/>
 
 
 <h2>You Don't have to bother about Database. I already build the MongoDb Cluster for managing data of this App.<h2/>
