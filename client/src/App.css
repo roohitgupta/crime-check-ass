@@ -48,12 +48,14 @@
 }
 
 .username-task{
-  font-size: 12px;
-  
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Times New Roman', Times, serif;
 }
 .date-task{
-  font-size: 13px;
-  
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 

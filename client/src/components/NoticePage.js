@@ -6,9 +6,10 @@ const NoticePage = () => {
   const [text, setText] = useState([]);
 
   const url = "http://localhost:5000/api/get-notices";
+  const username = localStorage.getItem('Name');
 
   const setData = (todo) => {
-    setText([{ notice: todo, createdAt: new Date() }, ...text]);
+    setText([{ notice: todo, createdAt: new Date(), user_Id: {username: username} }, ...text]);
   };
 
   const fetchTasks = async () => {
@@ -26,16 +27,17 @@ const NoticePage = () => {
     fetchTasks();
   }, []);
 
+
   return (
     <div>
       <h1>Notice Board</h1>
       <AddNotice setDataProps={setData} />
 
-      {text.map((e) => (
-        <div key={e._id} className="notice-container">
+      {text.map((e, _id) => (
+        <div key={_id} className="notice-container">
             <div className="notice-one">{e.notice}</div>
             <div className="notice-second">
-              <div className="username-task">{e.user_Id}</div>
+              <div className="username-task">{e.user_Id.username}</div>
               <div className="date-task">{new Date(e.createdAt).toLocaleDateString()} {new Date(e.createdAt).toLocaleTimeString()}</div>
             </div> 
         </div>

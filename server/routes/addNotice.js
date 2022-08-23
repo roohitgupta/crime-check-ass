@@ -30,9 +30,14 @@ const noticeTasks = async (req, res)=>{
 };
 
 const getAllNotice = async (req, res)=>{
-    const getNotice = await Notice.find().sort( { createdAt: -1 });
-
-    return res.json(getNotice);
+    try {
+        const getNotice = await Notice.find().populate("user_Id","username").sort( { createdAt: -1 }).lean().exec();
+        return res.json(getNotice);
+    
+    } catch (error) {
+        return res.json(error);
+    }
+       
 
 }
 

@@ -22,12 +22,14 @@ const AddNotice = (props) => {
 
     const textData = await response.json()
     if(textData) props.setDataProps(text);
+    document.getElementById("btnsubmit").value = "";
   }
 
   return (
     <div>
       <form onSubmit={AddNoticeInList}>
         <input
+          id="btnsubmit"
           type="text"
           placeholder="Enter Notices" 
           className="input-bar" 
