@@ -3,12 +3,14 @@ const connect = require('./db');
 const cors = require('cors');
 const router = express.Router();
 const { login, noticeTasks, getAllNotice } = require('./routes/addNotice');
+const dotenv = require('dotenv');
 
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 
+dotenv.config();
 
 app.use('/api', router);
 router.post('/login', login);
